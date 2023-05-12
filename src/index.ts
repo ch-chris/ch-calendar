@@ -1,8 +1,9 @@
 import { Calendar } from '@fullcalendar/core';
+import { createElement } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 
-import { renderEventContent } from '$utils/props';
+import { renderListContent } from '$utils/props';
 import { type Event } from '$utils/types';
 
 window.Webflow ||= [];
@@ -24,16 +25,7 @@ window.Webflow.push(() => {
     return events;
   };
   const events = getEvents();
-  console.log(events);
-
-  const renderListColor = function (info) {
-    const listEl = document.querySelectorAll<HTMLElement>('.fc-list-event');
-    listEl.forEach((item) => {
-      item.classList.add('ev_fc-background');
-      item.style.backgroundColor = info.event.backgroundColor;
-      console.log(info.event.backgroundColor);
-    });
-  };
+  // console.log(events);
 
   const gridCalendar = new Calendar(gridCalendarEl, {
     plugins: [dayGridPlugin],
@@ -47,7 +39,6 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(listCalendar, info.view.currentStart);
     },
-    // eventContent: renderEventContent,
   });
   const listCalendar = new Calendar(listCalendarEl, {
     plugins: [listPlugin],
@@ -61,30 +52,15 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(gridCalendar, info.view.currentStart);
     },
-    eventContent: renderEventContent,
+    eventDidMount: renderListContent,
   });
 
   gridCalendar.render();
   listCalendar.render();
 
   function syncCalendar(otherCalendar: Calendar, startDate: Date) {
-    // console.log(otherCalendar.getDate().toDateString(), '-', startDate.toDateString());
     if (otherCalendar.getDate().toDateString() !== startDate.toDateString()) {
       otherCalendar.gotoDate(startDate);
     }
   }
-  // const getEvents = [
-  //   {
-  //     title: 'Dr. Presentation',
-  //     startTime: '15:30',
-  //     daysOfWeek: [0],
-  //     extendedProps: {
-  //       department: 'CalerieHealth University',
-  //     },
-  //   },
-  //   {
-  //     title: 'The tfdsfd',
-  //     start: '2023-05-01',
-  //   },
-  // ];
 });

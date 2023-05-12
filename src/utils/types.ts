@@ -8,4 +8,7 @@ export type Event = {
   extendedProps: {
     department: string;
   };
+  rrule: {
+    freq: string;
+  };
 };
