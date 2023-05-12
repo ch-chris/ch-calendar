@@ -2,7 +2,7 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 
-// import { addProps } from '$utils/addprops';
+import { renderEventContent } from '$utils/props';
 import { type Event } from '$utils/types';
 
 window.Webflow ||= [];
@@ -24,8 +24,16 @@ window.Webflow.push(() => {
     return events;
   };
   const events = getEvents();
-  // eslint-disable-next-line no-console
   console.log(events);
+
+  const renderListColor = function (info) {
+    const listEl = document.querySelectorAll<HTMLElement>('.fc-list-event');
+    listEl.forEach((item) => {
+      item.classList.add('ev_fc-background');
+      item.style.backgroundColor = info.event.backgroundColor;
+      console.log(info.event.backgroundColor);
+    });
+  };
 
   const gridCalendar = new Calendar(gridCalendarEl, {
     plugins: [dayGridPlugin],
@@ -39,6 +47,7 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(listCalendar, info.view.currentStart);
     },
+    // eventContent: renderEventContent,
   });
   const listCalendar = new Calendar(listCalendarEl, {
     plugins: [listPlugin],
@@ -52,6 +61,7 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(gridCalendar, info.view.currentStart);
     },
+    eventContent: renderEventContent,
   });
 
   gridCalendar.render();
@@ -61,7 +71,6 @@ window.Webflow.push(() => {
     // console.log(otherCalendar.getDate().toDateString(), '-', startDate.toDateString());
     if (otherCalendar.getDate().toDateString() !== startDate.toDateString()) {
       otherCalendar.gotoDate(startDate);
-      console.log(startDate);
     }
   }
   // const getEvents = [
