@@ -50,3 +50,9 @@ export const renderListContent = function (info) {
   element.style.backgroundColor = info.event.backgroundColor;
   element.querySelector('.fc-list-event-title').prepend(departmentEl);
 };
+
+export const renderGridContent = function (info) {
+  const element = info.el;
+  element.style.backgroundColor = info.event.backgroundColor;
+  //element.querySelector('.fc-list-event-title').prepend(departmentEl);
+};

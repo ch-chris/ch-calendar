@@ -5,10 +5,8 @@ export type Event = {
   start: string | Date;
   end: string | Date;
   daysOfWeek: [];
+  rrule: string;
   extendedProps: {
     department: string;
-  };
-  rrule: {
-    freq: string;
   };
 };

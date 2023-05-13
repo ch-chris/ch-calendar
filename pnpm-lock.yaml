@@ -9,6 +9,7 @@ specifiers:
   '@fullcalendar/core': ^6.1.6
   '@fullcalendar/daygrid': ^6.1.6
   '@fullcalendar/list': ^6.1.6
+  '@fullcalendar/rrule': ^6.1.7
   '@fullcalendar/timegrid': ^6.1.6
   '@playwright/test': ^1.32.1
   '@typescript-eslint/eslint-plugin': ^5.57.0
@@ -20,6 +21,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-simple-import-sort: ^10.0.0
   prettier: ^2.8.7
+  rrule: ^2.7.2
   typescript: ^5.0.3
 
 dependencies:
@@ -27,7 +29,9 @@ dependencies:
   '@fullcalendar/core': 6.1.7
   '@fullcalendar/daygrid': 6.1.7_@fullcalendar+core@6.1.7
   '@fullcalendar/list': 6.1.7_@fullcalendar+core@6.1.7
+  '@fullcalendar/rrule': 6.1.7_mro2rgrkuqpn7zeodw3xv7sdl4
   '@fullcalendar/timegrid': 6.1.7_@fullcalendar+core@6.1.7
+  rrule: 2.7.2
 
 devDependencies:
   '@changesets/changelog-git': 0.1.14
@@ -549,6 +553,16 @@ packages:
       '@fullcalendar/core': ~6.1.7
     dependencies:
       '@fullcalendar/core': 6.1.7
+    dev: false
+
+  /@fullcalendar/rrule/6.1.7_mro2rgrkuqpn7zeodw3xv7sdl4:
+    resolution: {integrity: sha512-XLC3KkZ/nTBXhWscHLsx/GNAUdipHiqNrrZ5qYfKHXuFfuHvfpuMUy6Eo5vRza/VkmL7W0bgRb23+FNFnAEV+A==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.7
+      rrule: ^2.6.0
+    dependencies:
+      '@fullcalendar/core': 6.1.7
+      rrule: 2.7.2
     dev: false
 
   /@fullcalendar/timegrid/6.1.7_@fullcalendar+core@6.1.7:
@@ -2386,6 +2400,12 @@ packages:
       glob: 7.2.3
     dev: true
 
+  /rrule/2.7.2:
+    resolution: {integrity: sha512-NkBsEEB6FIZOZ3T8frvEBOB243dm46SPufpDckY/Ap/YH24V1zLeMmDY8OA10lk452NdrF621+ynDThE7FQU2A==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
+
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -2622,6 +2642,10 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+    dev: false
 
   /tsutils/3.21.0_typescript@5.0.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

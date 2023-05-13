@@ -56,6 +56,8 @@
     "@fullcalendar/core": "^6.1.6",
     "@fullcalendar/daygrid": "^6.1.6",
     "@fullcalendar/list": "^6.1.6",
-    "@fullcalendar/timegrid": "^6.1.6"
+    "@fullcalendar/rrule": "^6.1.7",
+    "@fullcalendar/timegrid": "^6.1.6",
+    "rrule": "^2.7.2"
   }
 }

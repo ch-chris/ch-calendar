@@ -2,8 +2,10 @@ import { Calendar } from '@fullcalendar/core';
 import { createElement } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import rrulePlugin from '@fullcalendar/rrule';
 
 import { renderListContent } from '$utils/props';
+import { renderGridContent } from '$utils/props';
 import { type Event } from '$utils/types';
 
 window.Webflow ||= [];
@@ -25,10 +27,10 @@ window.Webflow.push(() => {
     return events;
   };
   const events = getEvents();
-  // console.log(events);
+  console.log(events);
 
   const gridCalendar = new Calendar(gridCalendarEl, {
-    plugins: [dayGridPlugin],
+    plugins: [rrulePlugin, dayGridPlugin],
     initialView: 'dayGridMonth',
     headerToolbar: {
       left: 'prev,next',
@@ -39,9 +41,10 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(listCalendar, info.view.currentStart);
     },
+    eventDidMount: renderGridContent,
   });
   const listCalendar = new Calendar(listCalendarEl, {
-    plugins: [listPlugin],
+    plugins: [rrulePlugin, listPlugin],
     initialView: 'listMonth',
     headerToolbar: {
       left: '',
