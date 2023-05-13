@@ -1,5 +1,5 @@
 import { Calendar } from '@fullcalendar/core';
-import { createElement } from '@fullcalendar/core/preact';
+//import { createElement } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import rrulePlugin from '@fullcalendar/rrule';
@@ -27,7 +27,7 @@ window.Webflow.push(() => {
     return events;
   };
   const events = getEvents();
-  console.log(events);
+  //console.log(events);
 
   const gridCalendar = new Calendar(gridCalendarEl, {
     plugins: [rrulePlugin, dayGridPlugin],
