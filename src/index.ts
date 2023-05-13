@@ -1,5 +1,4 @@
 import { Calendar } from '@fullcalendar/core';
-//import { createElement } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import rrulePlugin from '@fullcalendar/rrule';
