@@ -36,13 +36,11 @@
 
 export const renderListContent = function (info) {
   const element = info.el;
-
-  /* use f below for rendering any obj
+  /* use function below for rendering any obj
     const timeEl = document.createElement('p');
     titleEl.classList.add('ev_fc-time');
     titleEl.textContent = info.event.start;
   */
-
   const departmentEl = document.createElement('p');
   departmentEl.classList.add('ev_fc-department');
   departmentEl.textContent = info.event.extendedProps.department;

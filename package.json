@@ -58,6 +58,7 @@
     "@fullcalendar/list": "^6.1.6",
     "@fullcalendar/rrule": "^6.1.7",
     "@fullcalendar/timegrid": "^6.1.6",
-    "rrule": "^2.7.2"
+    "rrule": "^2.7.2",
+    "tippy.js": "^6.3.7"
   }
 }

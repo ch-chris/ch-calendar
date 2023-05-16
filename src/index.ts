@@ -1,10 +1,12 @@
 import { Calendar } from '@fullcalendar/core';
+import { render } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import rrulePlugin from '@fullcalendar/rrule';
 
 import { renderListContent } from '$utils/props';
 import { renderGridContent } from '$utils/props';
+import { myTippy } from '$utils/tippy';
 import { type Event } from '$utils/types';
 
 window.Webflow ||= [];
@@ -40,7 +42,10 @@ window.Webflow.push(() => {
     datesSet: function (info) {
       syncCalendar(listCalendar, info.view.currentStart);
     },
-    eventDidMount: renderGridContent,
+    eventDidMount: function (info) {
+      renderGridContent(info);
+      myTippy(info);
+    },
   });
   const listCalendar = new Calendar(listCalendarEl, {
     plugins: [rrulePlugin, listPlugin],
